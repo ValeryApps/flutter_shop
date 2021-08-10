@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:flutter_shop/providers/dark_theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class CartFull extends StatefulWidget {
   const CartFull({Key key}) : super(key: key);
@@ -12,6 +14,7 @@ class CartFull extends StatefulWidget {
 class _CartFullState extends State<CartFull> {
   @override
   Widget build(BuildContext context) {
+    var _theme = Provider.of<DarkThemeProvider>(context);
     return Container(
       margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
       height: 138,
@@ -95,45 +98,7 @@ class _CartFullState extends State<CartFull> {
                       ],
                     ),
                     Spacer(),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Colors.teal.shade900,
-                          borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(12))),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 5.0),
-                            child: Text(
-                              "Shipping fees: ",
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            ),
-                          ),
-                          Spacer(),
-                          _buildIcon(Icons.remove, Colors.white, () {}),
-                          Card(
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 4, horizontal: 6),
-                              child: Text(
-                                "78",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            color: Colors.tealAccent,
-                          ),
-                          _buildIcon(Icons.add, Colors.white,
-                              () => print('Icons.add')),
-                        ],
-                      ),
-                    ),
+                    _shipping(_theme)
                   ],
                 ),
               ))
@@ -156,6 +121,45 @@ class _CartFullState extends State<CartFull> {
         ),
         splashColor: Colors.yellow,
         borderRadius: BorderRadius.circular(12),
+      ),
+    );
+  }
+
+  Widget _shipping(DarkThemeProvider theme) {
+    return Container(
+      decoration: BoxDecoration(
+          color: theme.getDarkTheme ? Colors.black45 : Colors.teal.shade900,
+          borderRadius: BorderRadius.only(bottomRight: Radius.circular(12))),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 5.0),
+            child: Text(
+              "Shipping fees: ",
+              style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            ),
+          ),
+          Spacer(),
+          _buildIcon(Icons.remove, Colors.white, () {}),
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 6),
+              child: Text(
+                "78",
+                style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            color: Colors.tealAccent,
+          ),
+          _buildIcon(Icons.add, Colors.white, () => print('Icons.add')),
+        ],
       ),
     );
   }

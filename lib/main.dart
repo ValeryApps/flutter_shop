@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/constants/theme_data.dart';
-import 'package:flutter_shop/proivers/dark_theme_provider.dart';
+import 'package:flutter_shop/providers/dark_theme_provider.dart';
 import 'package:flutter_shop/screens/bottom_navigation_bar.dart';
 import 'package:provider/provider.dart';
 

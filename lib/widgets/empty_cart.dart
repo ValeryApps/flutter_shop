@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/constants/colors.dart';
-import 'package:flutter_shop/proivers/dark_theme_provider.dart';
+import 'package:flutter_shop/providers/dark_theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class EmptyCart extends StatelessWidget {

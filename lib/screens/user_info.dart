@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_shop/constants/colors.dart';
 import 'package:flutter_shop/constants/my_icons.dart';
-import 'package:flutter_shop/proivers/dark_theme_provider.dart';
+import 'package:flutter_shop/providers/dark_theme_provider.dart';
 import 'package:flutter_shop/screens/wishlist_screen.dart';
 import 'package:list_tile_switch/list_tile_switch.dart';
 import 'package:provider/provider.dart';
